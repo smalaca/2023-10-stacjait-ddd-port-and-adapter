@@ -21,4 +21,12 @@ class CartItem {
     boolean isFor(UUID productId) {
         return this.productId.equals(productId);
     }
+
+    boolean hasNotMoreThan(Amount amount) {
+        return this.amount.hasNotMoreThan(amount);
+    }
+
+    void decrease(Amount amount) {
+        this.amount = this.amount.decrease(amount);
+    }
 }

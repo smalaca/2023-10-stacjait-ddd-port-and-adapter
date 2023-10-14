@@ -32,6 +32,17 @@ public class CartApplicationService {
 
     @PrimaryAdapter
     @Transactional
+    public void removeProduct(RemoveProductCommand command) {
+        Cart cart = cartRepository.findBy(command.cartId());
+        Amount amount = new Amount(command.amount());
+
+        cart.removeProduct(command.productId(), amount);
+
+        cartRepository.save(cart);
+    }
+
+    @PrimaryAdapter
+    @Transactional
     public void accept(UUID cartId) {
         Cart cart = cartRepository.findBy(cartId);
 

@@ -23,10 +23,29 @@ public class Cart {
         }
     }
 
+    @PrimaryPort
+    public void removeProduct(UUID productId, Amount amount) {
+        Optional<CartItem> found = findFor(productId);
+
+        if (found.isEmpty()) {
+            throw CartException.productNotInTheCart(productId);
+        }
+
+        removeProduct(found.get(), amount);
+    }
+
     private Optional<CartItem> findFor(UUID productId) {
         return items.stream()
                 .filter(cartItem -> cartItem.isFor(productId))
                 .findAny();
+    }
+
+    private void removeProduct(CartItem cartItem, Amount amount) {
+        if (cartItem.hasNotMoreThan(amount)) {
+            items.remove(cartItem);
+        } else {
+            cartItem.decrease(amount);
+        }
     }
 
     public UUID getCartId() {

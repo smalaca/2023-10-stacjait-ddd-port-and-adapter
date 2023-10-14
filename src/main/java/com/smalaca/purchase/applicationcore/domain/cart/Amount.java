@@ -15,4 +15,12 @@ public class Amount {
     Amount add(Amount amount) {
         return new Amount(value + amount.value);
     }
+
+    boolean hasNotMoreThan(Amount amount) {
+        return value <= amount.value;
+    }
+
+    Amount decrease(Amount amount) {
+        return new Amount(value - amount.value);
+    }
 }
