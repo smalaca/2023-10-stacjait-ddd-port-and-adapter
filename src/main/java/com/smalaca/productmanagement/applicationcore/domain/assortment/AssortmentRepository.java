@@ -1,10 +1,12 @@
 package com.smalaca.productmanagement.applicationcore.domain.assortment;
 
 import com.smalaca.annotation.architecture.SecondaryPort;
+import com.smalaca.annotation.ddd.DomainRepository;
 
 import java.util.UUID;
 
 @SecondaryPort
+@DomainRepository
 public interface AssortmentRepository {
     Assortment findBy(UUID buyerId);
 

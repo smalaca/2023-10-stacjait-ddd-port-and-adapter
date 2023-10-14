@@ -3,22 +3,25 @@ package com.smalaca.productmanagement.infrastructure.repository.inmemory.assortm
 import com.smalaca.annotation.architecture.SecondaryAdapter;
 import com.smalaca.productmanagement.applicationcore.domain.assortment.Assortment;
 import com.smalaca.productmanagement.applicationcore.domain.assortment.AssortmentRepository;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 @SecondaryAdapter
 public class InMemoryAssortmentRepository implements AssortmentRepository {
-    private final Map<UUID, Assortment> assortments = new HashMap<>();
+    private final CrudRepository<Assortment, UUID> repository;
+
+    public InMemoryAssortmentRepository(CrudRepository<Assortment, UUID> repository) {
+        this.repository = repository;
+    }
 
     @Override
     public Assortment findBy(UUID buyerId) {
-        return assortments.get(buyerId);
+        return repository.findById(buyerId).get();
     }
 
     @Override
     public void save(Assortment assortment) {
-        assortments.put(assortment.getBuyerId(), assortment);
+        repository.save(assortment);
     }
 }
