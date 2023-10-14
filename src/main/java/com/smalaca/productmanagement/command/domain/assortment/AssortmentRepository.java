@@ -1,4 +1,4 @@
-package com.smalaca.productmanagement.applicationcore.domain.assortment;
+package com.smalaca.productmanagement.command.domain.assortment;
 
 import com.smalaca.annotation.architecture.SecondaryPort;
 import com.smalaca.annotation.ddd.DomainRepository;

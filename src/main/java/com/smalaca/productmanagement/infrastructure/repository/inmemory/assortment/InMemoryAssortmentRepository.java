@@ -1,8 +1,8 @@
 package com.smalaca.productmanagement.infrastructure.repository.inmemory.assortment;
 
 import com.smalaca.annotation.architecture.SecondaryAdapter;
-import com.smalaca.productmanagement.applicationcore.domain.assortment.Assortment;
-import com.smalaca.productmanagement.applicationcore.domain.assortment.AssortmentRepository;
+import com.smalaca.productmanagement.command.domain.assortment.Assortment;
+import com.smalaca.productmanagement.command.domain.assortment.AssortmentRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

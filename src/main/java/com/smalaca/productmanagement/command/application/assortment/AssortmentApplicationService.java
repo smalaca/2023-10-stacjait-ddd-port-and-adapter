@@ -1,8 +1,8 @@
-package com.smalaca.productmanagement.applicationcore.application.assortment;
+package com.smalaca.productmanagement.command.application.assortment;
 
 import com.smalaca.annotation.architecture.PrimaryAdapter;
-import com.smalaca.productmanagement.applicationcore.domain.assortment.Assortment;
-import com.smalaca.productmanagement.applicationcore.domain.assortment.AssortmentRepository;
+import com.smalaca.productmanagement.command.domain.assortment.Assortment;
+import com.smalaca.productmanagement.command.domain.assortment.AssortmentRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
