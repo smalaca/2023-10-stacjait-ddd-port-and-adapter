@@ -1,5 +1,6 @@
 package com.smalaca.productmanagement.infrastructure.rest.assortment;
 
+import com.smalaca.productmanagement.command.application.assortment.AddProductCommand;
 import com.smalaca.productmanagement.command.application.assortment.AssortmentApplicationService;
 import com.smalaca.productmanagement.query.assortment.AssortmentQueryService;
 import com.smalaca.productmanagement.query.assortment.ProductDetailsDto;
@@ -22,7 +23,7 @@ public class AssortmentRestController {
 
     public UUID addProduct(String productName) {
         UUID buyerId = getBuyerIdFromSession();
-        UUID productId = assortmentApplicationService.addProduct(buyerId, productName);
+        UUID productId = assortmentApplicationService.addProduct(new AddProductCommand(buyerId, productName));
 
         return productId;
     }

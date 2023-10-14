@@ -16,12 +16,12 @@ public class AssortmentApplicationService {
 
     @PrimaryAdapter
     @Transactional
-    public UUID addProduct(UUID buyerId, String productName) {
+    public UUID addProduct(AddProductCommand command) {
         // 1. tłumaczenie typów prostych na język domenowy [0...*]
-        Assortment assortment = assortmentRepository.findBy(buyerId);
+        Assortment assortment = assortmentRepository.findBy(command.buyerId());
 
         // 2. wywołanie jednej metody na domenie
-        assortment.addProduct(productName);
+        assortment.addProduct(command.productName());
 
         // 3. zapis zmian [1 ... *]
         assortmentRepository.save(assortment);
