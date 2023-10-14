@@ -16,4 +16,8 @@ public class CartRestController {
     public void addProduct(UUID cartId, UUID productId) {
         cartApplicationService.addProduct(cartId, productId);
     }
+
+    public void accept(UUID cartId) {
+        cartApplicationService.accept(cartId);
+    }
 }
