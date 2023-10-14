@@ -1,6 +1,7 @@
 package com.smalaca.purchase.applicationcore.application.cart;
 
 import com.smalaca.annotation.architecture.PrimaryAdapter;
+import com.smalaca.purchase.applicationcore.domain.cart.Amount;
 import com.smalaca.purchase.applicationcore.domain.cart.Cart;
 import com.smalaca.purchase.applicationcore.domain.cart.CartRepository;
 import com.smalaca.purchase.applicationcore.domain.offer.Offer;
@@ -22,8 +23,9 @@ public class CartApplicationService {
     @Transactional
     public void addProduct(AddProductCommand command) {
         Cart cart = cartRepository.findBy(command.cartId());
+        Amount amount = new Amount(command.amount());
 
-        cart.addProduct(command.productId());
+        cart.addProduct(command.productId(), amount);
 
         cartRepository.save(cart);
     }
