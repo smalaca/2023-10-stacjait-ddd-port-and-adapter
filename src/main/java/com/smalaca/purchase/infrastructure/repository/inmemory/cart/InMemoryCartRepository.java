@@ -1,5 +1,6 @@
 package com.smalaca.purchase.infrastructure.repository.inmemory.cart;
 
+import com.smalaca.annotation.architecture.SecondaryPort;
 import com.smalaca.purchase.applicationcore.domain.cart.Cart;
 import com.smalaca.purchase.applicationcore.domain.cart.CartRepository;
 
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@SecondaryPort
 public class InMemoryCartRepository implements CartRepository {
     private final Map<UUID, Cart> carts = new HashMap<>();
 
