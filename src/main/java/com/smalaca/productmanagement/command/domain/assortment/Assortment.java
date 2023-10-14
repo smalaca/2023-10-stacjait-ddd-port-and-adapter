@@ -13,12 +13,12 @@ public class Assortment {
     private List<Product> products = new ArrayList<>();
 
     @PrimaryPort
-    public void addProduct(String productName) {
+    public void addProduct(String productName, Price price) {
         if (alreadyHas(productName)) {
             throw AssortmentException.productAlreadyExists(productName);
         }
 
-        products.add(new Product(productName));
+        products.add(new Product(productName, price));
     }
 
     private boolean alreadyHas(String productName) {

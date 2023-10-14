@@ -9,11 +9,12 @@ import java.util.UUID;
 class Product {
     private UUID productId;
     private final String productName;
-//    private Price price;
+    private final Price price;
 //    private SerialNumber serialNumber;
 
-    Product(String productName) {
+    Product(String productName, Price price) {
         this.productName = productName;
+        this.price = price;
     }
 
     boolean hasName(String productName) {
