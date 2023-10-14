@@ -23,7 +23,7 @@ public class CartApplicationService {
     @Transactional
     public void addProduct(AddProductCommand command) {
         Cart cart = cartRepository.findBy(command.cartId());
-        Amount amount = new Amount(command.amount());
+        Amount amount = Amount.amount(command.amount());
 
         cart.addProduct(command.productId(), amount);
 
@@ -34,7 +34,7 @@ public class CartApplicationService {
     @Transactional
     public void removeProduct(RemoveProductCommand command) {
         Cart cart = cartRepository.findBy(command.cartId());
-        Amount amount = new Amount(command.amount());
+        Amount amount = Amount.amount(command.amount());
 
         cart.removeProduct(command.productId(), amount);
 

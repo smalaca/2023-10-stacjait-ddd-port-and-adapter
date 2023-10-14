@@ -7,8 +7,17 @@ import com.smalaca.annotation.ddd.ValueObject;
 public class Amount {
     private final int value;
 
-    public Amount(int value) {
+    private Amount(int value) {
         this.value = value;
+    }
+
+    @Factory
+    public static Amount amount(int value) {
+        if (value < 1) {
+            throw new AmountException(value);
+        }
+
+        return new Amount(value);
     }
 
     @Factory
