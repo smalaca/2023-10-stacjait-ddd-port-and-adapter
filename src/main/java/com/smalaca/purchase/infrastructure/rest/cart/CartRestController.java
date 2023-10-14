@@ -1,5 +1,6 @@
 package com.smalaca.purchase.infrastructure.rest.cart;
 
+import com.smalaca.purchase.applicationcore.application.cart.AddProductCommand;
 import com.smalaca.purchase.applicationcore.application.cart.CartApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +14,8 @@ public class CartRestController {
         this.cartApplicationService = cartApplicationService;
     }
 
-    public void addProduct(UUID cartId, UUID productId) {
-        cartApplicationService.addProduct(cartId, productId);
+    public void addProduct(AddProductCommand command) {
+        cartApplicationService.addProduct(command);
     }
 
     public void accept(UUID cartId) {

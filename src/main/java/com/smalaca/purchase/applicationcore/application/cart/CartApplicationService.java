@@ -20,10 +20,10 @@ public class CartApplicationService {
 
     @PrimaryAdapter
     @Transactional
-    public void addProduct(UUID cartId, UUID productId) {
-        Cart cart = cartRepository.findBy(cartId);
+    public void addProduct(AddProductCommand command) {
+        Cart cart = cartRepository.findBy(command.cartId());
 
-        cart.addProduct(productId);
+        cart.addProduct(command.productId());
 
         cartRepository.save(cart);
     }
