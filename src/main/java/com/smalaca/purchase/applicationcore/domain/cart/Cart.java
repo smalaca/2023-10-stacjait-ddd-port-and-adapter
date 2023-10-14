@@ -54,6 +54,6 @@ public class Cart {
 
     @PrimaryPort
     public Offer accept() {
-        return new Offer();
+        return new Offer(cartId);
     }
 }

@@ -6,7 +6,12 @@ import com.smalaca.purchase.applicationcore.domain.order.Order;
 import java.util.UUID;
 
 public class Offer {
+    private final UUID cartId;
     private UUID offerId;
+
+    public Offer(UUID cartId) {
+        this.cartId = cartId;
+    }
 
     public UUID getOfferId() {
         return offerId;
